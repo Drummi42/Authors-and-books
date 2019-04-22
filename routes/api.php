@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['prefix' => '/v1', 'namespace' => 'Api\V1', 'as' => 'api.'], function () {
+    Route::resource('authors', 'AuthorController', ['except' => ['create', 'edit']]);
+    Route::get('/books/list', 'BookController@getList')->name('books.list');
+    Route::resource('books', 'BookController', ['except' => ['create', 'edit']]);
 });

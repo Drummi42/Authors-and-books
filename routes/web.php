@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'Library\Front\LibraryController@index')->name('library.all');
+
+Route::prefix('admin')->group(function(){
+    Route::prefix('library')->group(function(){
+        Route::view('/','library.admin.index')->name('admin.library');
+    });
 });
+
