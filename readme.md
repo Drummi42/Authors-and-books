@@ -1,7 +1,5 @@
 # Тестовый проект Laravel 5.8 + Vuejs
 
-Для `watch-poll` нужно расширение `vue-router`
-
 Тестовые данные
 `php artisan migrate --seed`
 
